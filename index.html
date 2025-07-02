@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IA Deportiva | Tu entrenador virtual</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4086/4086679.png" />
+</head>
+<body>
+<div class="perfil-container">
+  <label for="perfil">Seleccioná tu perfil:</label>
+  <select id="perfil">
+    <option value="invitado">Invitado</option>
+    <option value="jugador1">Jugador 1</option>
+    <option value="jugador2">Jugador 2</option>
+    <option value="nuevo">+ Crear nuevo perfil</option>
+  </select>
+</div>
+  </header>
+
+  <main>
+    <section class="chat-box">
+      <div class="messages" id="messages">
+        <div id="logros" class="logros">
+  <h3>🎯 Logros</h3>
+  <ul id="lista-logros"></ul>
+</div>
+<div id="historial" class="historial">
+  <h3>📜 Historial</h3>
+  <ul id="lista-historial"></ul>
+</div>
+        <div class="bot-msg">Hola 👋 Soy tu entrenador IA. ¿En qué puedo ayudarte hoy?</div>
+      </div>
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Escribí tu pregunta..." required />
+        <button type="submit">Enviar</button>
+        <button id="borrar-todo" class="btn-secundario">🧹 Borrar historial y logros</button>
+      </form>
+    </section>
+
+    <aside class="sidebar">
+      <h2>🏆 Logros</h2>
+      <ul id="logros-list">
+        <li>Haz tu primera pregunta</li>
+        <li>Alcanza 5 respuestas</li>
+        <li>Desbloquea modo experto</li>
+      </ul>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
