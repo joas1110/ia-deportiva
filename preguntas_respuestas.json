@@ -1,0 +1,107 @@
+[
+  {
+    "pregunta": "¿Qué es una zona mixta en el deporte?",
+    "respuestas": [
+      "Es el área donde periodistas entrevistan a los deportistas después de los partidos.",
+      "Es una zona de paso entre los vestuarios y la prensa en eventos deportivos."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo mejorar mi resistencia en básquet?",
+    "respuestas": [
+      "Hacé entrenamiento aeróbico 3 veces por semana y sumá sesiones de HIIT.",
+      "Complementá con buena alimentación y descanso adecuado para rendir mejor."
+    ]
+  },
+  {
+    "pregunta": "¿Qué comer antes de un partido?",
+    "respuestas": [
+      "Algo liviano con carbohidratos complejos, como arroz con pollo o banana con avena.",
+      "Evita comidas pesadas o grasosas. Hidratate bien también."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo recuperarse después de un partido?",
+    "respuestas": [
+      "Hidratate bien, comé proteínas y hacé estiramientos.",
+      "Un baño frío y descanso son claves para una buena recuperación."
+    ]
+  },
+  {
+    "pregunta": "¿Cuántos días a la semana debo entrenar?",
+    "respuestas": [
+      "Depende tu objetivo, pero 4 a 5 días con al menos 2 de descanso suele ser ideal.",
+      "La constancia es clave. Escuchá tu cuerpo para evitar sobreentrenamiento."
+    ]
+  },
+  {
+    "pregunta": "¿Qué significa HIIT?",
+    "respuestas": [
+      "Entrenamiento Interválico de Alta Intensidad. Cortos, pero intensos.",
+      "Consiste en combinar períodos de esfuerzo máximo con descansos breves."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo puedo saltar más alto?",
+    "respuestas": [
+      "Entrená fuerza explosiva con sentadillas, saltos y ejercicios pliométricos.",
+      "La técnica y la fuerza de piernas son claves. Practicá zancadas y saltos con peso."
+    ]
+  },
+  {
+    "pregunta": "¿Qué zapatillas usar para básquet?",
+    "respuestas": [
+      "Las de caña alta ofrecen buen soporte. Nike, Adidas y Under Armour tienen buenas opciones.",
+      "Elegí unas con buena amortiguación y tracción según tu posición en la cancha."
+    ]
+  },
+  {
+    "pregunta": "¿Qué ejercicios sirven para prevenir lesiones?",
+    "respuestas": [
+      "Fortalecer core, movilidad de tobillo y estabilidad de rodillas ayuda mucho.",
+      "Hacé estiramientos dinámicos antes de entrenar y estáticos después."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo entrenar mi mentalidad deportiva?",
+    "respuestas": [
+      "Usá visualización, meditá y fijate metas claras. La mente también se entrena.",
+      "Escuchar podcasts deportivos o trabajar con un coach mental puede ayudarte."
+    ]
+  },
+  {
+    "pregunta": "¿Qué rutina de fuerza es buena para un jugador de básquet?",
+    "respuestas": [
+      "Sentadillas, peso muerto y press militar son excelentes para fuerza general.",
+      "Combiná fuerza con ejercicios funcionales y pliometría para transferirlo a la cancha."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo mejorar mi tiro de tres puntos?",
+    "respuestas": [
+      "Entrená la técnica con repeticiones constantes y buena mecánica de brazos.",
+      "Graba tus tiros y analizá tu postura y balance. Practicá bajo fatiga también."
+    ]
+  },
+  {
+    "pregunta": "¿Cuál es el mejor momento para estirar?",
+    "respuestas": [
+      "Estiramientos dinámicos antes de entrenar, estáticos después.",
+      "El estiramiento post entrenamiento ayuda a evitar rigidez y lesiones."
+    ]
+  },
+  {
+    "pregunta": "¿Qué proteína es mejor después de entrenar?",
+    "respuestas": [
+      "La proteína de suero (whey) es rápida y efectiva post entrenamiento.",
+      "Combiná proteínas animales o vegetales con carbohidratos para mejor absorción."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo evitar calambres en partidos?",
+    "respuestas": [
+      "Hidratate bien y asegurate de consumir sodio, potasio y magnesio.",
+      "Un buen calentamiento y estiramiento previenen la mayoría de calambres."
+    ]
+  }
+]
