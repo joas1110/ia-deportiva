@@ -14,12 +14,37 @@ const selectorPerfil = document.getElementById("perfil");
 const sonidoClick = new Audio("sounds/click.mp3");
 const sonidoLogro = new Audio("sounds/logro.mp3");
 
+// Cargar preguntas al iniciar
 fetch("preguntas_respuestas.json")
   .then(res => res.json())
   .then(json => {
     data = json;
-    mostrarPreguntasDisponibles();
+    mostrarPreguntasDisponibles(); // Carga inicial
   });
+
+window.onload = () => {
+  perfilActual = selectorPerfil.value || "invitado";
+  cargarDatos();
+};
+
+selectorPerfil.addEventListener("change", () => {
+  if (selectorPerfil.value === "nuevo") {
+    const nuevoNombre = prompt("Ingresá un nombre para tu nuevo perfil:");
+    if (nuevoNombre) {
+      const option = document.createElement("option");
+      option.text = nuevoNombre;
+      option.value = nuevoNombre;
+      selectorPerfil.add(option);
+      selectorPerfil.value = nuevoNombre;
+      perfilActual = nuevoNombre;
+    } else {
+      selectorPerfil.value = perfilActual;
+    }
+  } else {
+    perfilActual = selectorPerfil.value;
+  }
+  cargarDatos();
+});
 
 function cargarDatos() {
   const historial = JSON.parse(localStorage.getItem("historial_" + perfilActual)) || [];
@@ -34,20 +59,14 @@ function cargarDatos() {
   actualizarListaHistorial(historial);
 }
 
-function guardarHistorial(historial) {
-  localStorage.setItem("historial_" + perfilActual, JSON.stringify(historial));
-}
-
-function guardarLogros(logros) {
-  localStorage.setItem("logros_" + perfilActual, JSON.stringify(logros));
-}
-
+// Envío de pregunta
 chatForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const pregunta = input.value.trim();
   if (!pregunta) return;
 
   let historial = JSON.parse(localStorage.getItem("historial_" + perfilActual)) || [];
+
   agregarMensaje(pregunta, "user");
   historial.push(pregunta);
   guardarHistorial(historial);
@@ -71,14 +90,23 @@ botonBorrar.addEventListener("click", (e) => {
 
 function obtenerRespuesta(preguntaUsuario) {
   const preguntaNormalizada = preguntaUsuario.toLowerCase();
+
   for (let item of data) {
-    if (preguntaNormalizada.includes(item.pregunta.toLowerCase())) {
+    const enunciado = item.pregunta.toLowerCase();
+    if (preguntaNormalizada.includes(enunciado) || enunciado.includes(preguntaNormalizada)) {
       const respuestas = item.respuestas;
       return respuestas[Math.floor(Math.random() * respuestas.length)];
     }
   }
+
   guardarPreguntaNoEncontrada(preguntaUsuario);
   return "No tengo una respuesta aún, pero pronto lo sabremos 😉.";
+}
+
+function guardarPreguntaNoEncontrada(pregunta) {
+  let nuevas = JSON.parse(localStorage.getItem("nuevasPreguntas")) || [];
+  nuevas.push(pregunta);
+  localStorage.setItem("nuevasPreguntas", JSON.stringify(nuevas));
 }
 
 function agregarMensaje(texto, tipo) {
@@ -91,7 +119,7 @@ function agregarMensaje(texto, tipo) {
 
 function actualizarListaHistorial(historial) {
   listaHistorial.innerHTML = "";
-  historial.forEach((p) => {
+  historial.forEach(p => {
     const li = document.createElement("li");
     li.textContent = p;
     listaHistorial.appendChild(li);
@@ -104,8 +132,10 @@ function verificarLogros(historial) {
     { cantidad: 5, texto: "🔥 ¡5 preguntas respondidas!" },
     { cantidad: 10, texto: "🚀 ¡Modo experto desbloqueado!" }
   ];
+
   let desbloqueados = JSON.parse(localStorage.getItem("logros_" + perfilActual)) || [];
-  logros.forEach((logro) => {
+
+  logros.forEach(logro => {
     if (historial.length === logro.cantidad && !desbloqueados.includes(logro.texto)) {
       agregarLogro(logro.texto);
       desbloqueados.push(logro.texto);
@@ -121,10 +151,12 @@ function agregarLogro(texto) {
   listaLogros.appendChild(li);
 }
 
-function guardarPreguntaNoEncontrada(pregunta) {
-  let nuevas = JSON.parse(localStorage.getItem("nuevasPreguntas")) || [];
-  nuevas.push(pregunta);
-  localStorage.setItem("nuevasPreguntas", JSON.stringify(nuevas));
+function guardarHistorial(historial) {
+  localStorage.setItem("historial_" + perfilActual, JSON.stringify(historial));
+}
+
+function guardarLogros(logros) {
+  localStorage.setItem("logros_" + perfilActual, JSON.stringify(logros));
 }
 
 function mostrarPreguntasNuevas() {
@@ -139,38 +171,12 @@ function mostrarPreguntasNuevas() {
 
 function mostrarPreguntasDisponibles() {
   preguntasDisponibles.innerHTML = "<h4>📚 Preguntas que podés hacer:</h4><ul>";
-  data.forEach((item) => {
+  data.forEach(item => {
     preguntasDisponibles.innerHTML += `<li>${item.pregunta}</li>`;
   });
   preguntasDisponibles.innerHTML += "</ul>";
 }
 
-document.getElementById("chat-form").addEventListener("click", function (e) {
-  if (e.target && e.target.id === "ver-nuevas") mostrarPreguntasNuevas();
-  if (e.target && e.target.id === "ver-disponibles") mostrarPreguntasDisponibles();
-});
-
-selectorPerfil.addEventListener("change", () => {
-  if (selectorPerfil.value === "nuevo") {
-    const nuevoNombre = prompt("Ingresá un nombre para tu nuevo perfil:");
-    if (nuevoNombre) {
-      const option = document.createElement("option");
-      option.text = nuevoNombre;
-      option.value = nuevoNombre;
-      selectorPerfil.add(option);
-      selectorPerfil.value = nuevoNombre;
-      perfilActual = nuevoNombre;
-      cargarDatos();
-    } else {
-      selectorPerfil.value = perfilActual;
-    }
-  } else {
-    perfilActual = selectorPerfil.value;
-    cargarDatos();
-  }
-});
-
-window.onload = () => {
-  perfilActual = selectorPerfil.value || "invitado";
-  cargarDatos();
-};
+// Eventos botones personalizados
+document.getElementById("ver-nuevas").addEventListener("click", mostrarPreguntasNuevas);
+document.getElementById("ver-disponibles").addEventListener("click", mostrarPreguntasDisponibles);
