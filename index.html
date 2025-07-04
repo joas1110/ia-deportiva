@@ -8,6 +8,7 @@
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4086/4086679.png" />
 </head>
 <body>
+  <!-- Selector de perfil -->
   <div class="perfil-container">
     <label for="perfil">Seleccioná tu perfil:</label>
     <select id="perfil">
@@ -19,31 +20,39 @@
   </div>
 
   <main>
+    <!-- Chat principal -->
     <section class="chat-box">
       <div class="messages" id="messages">
-        <div id="logros" class="logros">
-          <h3>🎯 Logros</h3>
-          <ul id="lista-logros"></ul>
-        </div>
-        <div id="historial" class="historial">
-          <h3>📜 Historial</h3>
-          <ul id="lista-historial"></ul>
-        </div>
         <div class="bot-msg">Hola 👋 Soy tu entrenador IA. ¿En qué puedo ayudarte hoy?</div>
       </div>
 
+      <!-- Formulario de interacción -->
       <form id="chat-form">
         <input type="text" id="user-input" placeholder="Escribí tu pregunta..." required />
         <button type="submit">Enviar</button>
         <button type="button" id="borrar-todo" class="btn-secundario">🧹 Borrar historial y logros</button>
-        <button type="button" onclick="mostrarPreguntasNuevas()">📩 Ver preguntas nuevas</button>
+        <button type="button" id="ver-nuevas">📩 Ver preguntas nuevas</button>
+        <button type="button" id="ver-disponibles">📚 Ver preguntas disponibles</button>
+
         <ul id="lista-nuevas"></ul>
+        <div id="preguntas-disponibles" class="preguntas-lista"></div>
       </form>
+
+      <!-- Historial y logros -->
+      <div id="logros" class="logros">
+        <h3>🎯 Logros</h3>
+        <ul id="lista-logros"></ul>
+      </div>
+      <div id="historial" class="historial">
+        <h3>📜 Historial</h3>
+        <ul id="lista-historial"></ul>
+      </div>
     </section>
 
+    <!-- Barra lateral -->
     <aside class="sidebar">
-      <h2>🏆 Logros</h2>
-      <ul id="logros-list">
+      <h2>🏆 Logros posibles</h2>
+      <ul>
         <li>Haz tu primera pregunta</li>
         <li>Alcanza 5 respuestas</li>
         <li>Desbloquea modo experto</li>
@@ -54,4 +63,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

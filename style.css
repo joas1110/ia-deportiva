@@ -1,9 +1,11 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* GLOBAL */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #111;
@@ -13,14 +15,7 @@ body {
   min-height: 100vh;
 }
 
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  padding: 1rem;
-  gap: 1rem;
-}
-
+/* HEADER */
 header {
   background: #000;
   color: #fff;
@@ -30,6 +25,7 @@ header {
   align-items: center;
 }
 
+/* PERFIL SELECTOR */
 .perfil-container {
   background: #222;
   padding: 1rem;
@@ -49,6 +45,16 @@ header {
   border: 1px solid #555;
 }
 
+/* LAYOUT PRINCIPAL */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* CAJA DE CHAT */
 .chat-box {
   flex: 2;
   background: #1a1a1a;
@@ -60,6 +66,7 @@ header {
   box-shadow: 0 0 8px rgba(255,255,255,0.1);
 }
 
+/* MENSAJES */
 .messages {
   flex: 1;
   overflow-y: auto;
@@ -91,6 +98,7 @@ header {
   align-self: flex-end;
 }
 
+/* FORMULARIO */
 form {
   display: flex;
   flex-direction: column;
@@ -132,6 +140,7 @@ button:hover {
   background-color: #c0392b;
 }
 
+/* SIDEBAR */
 .sidebar {
   flex: 1;
   background: #222;
@@ -167,6 +176,7 @@ button:hover {
   content: "✅";
 }
 
+/* HISTORIAL Y LOGROS */
 .logros, .historial {
   background: #f5f5f5;
   color: #111;
@@ -181,6 +191,7 @@ button:hover {
   padding-bottom: 0.3rem;
 }
 
+/* NUEVAS PREGUNTAS */
 #lista-nuevas {
   margin-top: 0.5rem;
   list-style-type: disc;
@@ -188,6 +199,30 @@ button:hover {
   color: #ddd;
 }
 
+/* SUGERENCIAS */
+.preguntas-lista {
+  background-color: #222;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.preguntas-lista h4 {
+  margin-bottom: 0.5rem;
+}
+
+.preguntas-lista ul {
+  padding-left: 1rem;
+}
+
+.preguntas-lista li {
+  margin-bottom: 0.25rem;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   main {
     flex-direction: column;
