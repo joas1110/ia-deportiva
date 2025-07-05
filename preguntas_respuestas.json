@@ -68,5 +68,75 @@
       "Usá visualización, meditá y fijate metas claras. La mente también se entrena.",
       "Escuchar podcasts deportivos o trabajar con un coach mental puede ayudarte."
     ]
+  },
+  {
+    "pregunta": "¿Qué hacer si me siento desmotivado para entrenar?",
+    "respuestas": [
+      "Recordá tus objetivos, buscá entrenar en grupo o cambiá tu rutina para variar.",
+      "Mirar documentales de deportistas o escuchar música también puede inspirarte."
+    ]
+  },
+  {
+    "pregunta": "¿Qué puedo desayunar antes de entrenar?",
+    "respuestas": [
+      "Una tostada con banana y miel, o yogur con avena y frutas.",
+      "Algo liviano con energía rápida, pero que no caiga pesado."
+    ]
+  },
+  {
+    "pregunta": "¿Cuánta agua debo tomar por día?",
+    "respuestas": [
+      "Al menos 2 litros, pero si entrenás mucho, puede ser más.",
+      "Escuchá tu cuerpo y mantené una botella cerca siempre."
+    ]
+  },
+  {
+    "pregunta": "¿Puedo entrenar si estoy resfriado?",
+    "respuestas": [
+      "Si es algo leve y sin fiebre, podés hacer ejercicios suaves.",
+      "Escuchá tu cuerpo. Si estás muy cansado, lo mejor es descansar."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo mejorar mi defensa en básquet?",
+    "respuestas": [
+      "Trabajá tu postura, velocidad lateral y anticipación.",
+      "Hacé drills específicos y prestá atención a tu posición corporal."
+    ]
+  },
+  {
+    "pregunta": "¿Cómo mejorar el tiro de tres puntos?",
+    "respuestas": [
+      "Practica con repeticiones, mantené buena técnica y equilibrio.",
+      "Analizá tus tiros grabándote y ajustá los movimientos."
+    ]
+  },
+  {
+    "pregunta": "¿Cuánto debo dormir si soy deportista?",
+    "respuestas": [
+      "Entre 7 y 9 horas por noche. El descanso es parte del entrenamiento.",
+      "La calidad del sueño influye en tu rendimiento físico y mental."
+    ]
+  },
+  {
+    "pregunta": "¿Qué hago si tengo miedo a fallar en un partido?",
+    "respuestas": [
+      "Visualizá jugadas exitosas y repetí afirmaciones positivas.",
+      "El error es parte del juego. Enfocate en disfrutar el proceso."
+    ]
+  },
+  {
+    "pregunta": "¿Sirve hacer pesas para el básquet?",
+    "respuestas": [
+      "Sí, ayuda a ganar fuerza, prevenir lesiones y mejorar rendimiento.",
+      "Combiná fuerza con velocidad y técnica para mejores resultados."
+    ]
+  },
+  {
+    "pregunta": "¿Qué es un pre-entreno natural?",
+    "respuestas": [
+      "Un café solo, banana o frutas con avena pueden ser buenas opciones.",
+      "Alimentos que den energía sin causar pesadez ni malestar."
+    ]
   }
 ]
