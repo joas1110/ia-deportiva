@@ -236,3 +236,14 @@ button:hover {
     order: 1;
   }
 }
+
+.pregunta-clickable {
+  cursor: pointer;
+  color: #8fd3ff;
+  transition: 0.3s ease;
+}
+
+.pregunta-clickable:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}

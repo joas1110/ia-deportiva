@@ -19,7 +19,7 @@ fetch("preguntas_respuestas.json")
   .then(res => res.json())
   .then(json => {
     data = json;
-    mostrarPreguntasDisponibles(); // Carga inicial
+    mostrarPreguntasDisponibles();
   });
 
 window.onload = () => {
@@ -59,7 +59,6 @@ function cargarDatos() {
   actualizarListaHistorial(historial);
 }
 
-// Envío de pregunta
 chatForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const pregunta = input.value.trim();
@@ -89,14 +88,32 @@ botonBorrar.addEventListener("click", (e) => {
 });
 
 function obtenerRespuesta(preguntaUsuario) {
-  const preguntaNormalizada = preguntaUsuario.toLowerCase();
+  const preguntaNormalizada = preguntaUsuario.toLowerCase().trim();
+  let mejorCoincidencia = null;
+  let maxCoincidencia = 0;
 
   for (let item of data) {
-    const enunciado = item.pregunta.toLowerCase();
-    if (preguntaNormalizada.includes(enunciado) || enunciado.includes(preguntaNormalizada)) {
-      const respuestas = item.respuestas;
-      return respuestas[Math.floor(Math.random() * respuestas.length)];
+    const preguntaBD = item.pregunta.toLowerCase().trim();
+
+    // Nivel de coincidencia por palabras comunes
+    const palabrasUsuario = preguntaNormalizada.split(" ");
+    const palabrasBD = preguntaBD.split(" ");
+    const coincidencias = palabrasUsuario.filter(palabra => palabrasBD.includes(palabra)).length;
+
+    if (coincidencias > maxCoincidencia) {
+      maxCoincidencia = coincidencias;
+      mejorCoincidencia = item;
     }
+
+    if (preguntaNormalizada === preguntaBD) {
+      mejorCoincidencia = item;
+      break;
+    }
+  }
+
+  if (mejorCoincidencia) {
+    const respuestas = mejorCoincidencia.respuestas;
+    return respuestas[Math.floor(Math.random() * respuestas.length)];
   }
 
   guardarPreguntaNoEncontrada(preguntaUsuario);
@@ -170,13 +187,23 @@ function mostrarPreguntasNuevas() {
 }
 
 function mostrarPreguntasDisponibles() {
-  preguntasDisponibles.innerHTML = "<h4>📚 Preguntas que podés hacer:</h4><ul>";
-  data.forEach(item => {
-    preguntasDisponibles.innerHTML += `<li>${item.pregunta}</li>`;
+  preguntasDisponibles.innerHTML = "<h4>📚 Preguntas que podés hacer:</h4>";
+  const ul = document.createElement("ul");
+
+  data.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item.pregunta;
+    li.classList.add("pregunta-clickable");
+    li.addEventListener("click", () => {
+      input.value = item.pregunta;
+      input.focus();
+    });
+    ul.appendChild(li);
   });
-  preguntasDisponibles.innerHTML += "</ul>";
+
+  preguntasDisponibles.appendChild(ul);
 }
 
-// Eventos botones personalizados
+// Eventos botones
 document.getElementById("ver-nuevas").addEventListener("click", mostrarPreguntasNuevas);
 document.getElementById("ver-disponibles").addEventListener("click", mostrarPreguntasDisponibles);
